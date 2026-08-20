@@ -52,6 +52,17 @@ After adding or changing an MCP server, validate it in an active OMP session:
 
 Confirm that `/mcp list` reports the intended user or project source. A valid JSON file does not prove that the server process starts, its endpoint is reachable, or authentication succeeds; `/mcp test` exercises the connection.
 
+## Agents and subagents
+
+After adding or changing an agent, open `/agents` and confirm:
+
+- the expected user or project definition is discovered
+- the model and thinking settings resolve as intended
+- read-only or editing permissions match the requested role
+- optional prewalk and advisor settings match the user's choice
+
+Do not treat a file existing on disk as proof that OMP selected it; a higher-priority definition with the same name can win.
+
 ## Backups
 
 Before directly editing an existing config file, create a timestamped sibling backup such as:
@@ -66,4 +77,4 @@ Preserve file permissions and unrelated content. Backups containing secrets rema
 
 ## Behavior checks
 
-A schema check proves parsing. A model smoke proves model selection and authentication. A broker status check proves broker connectivity. `/mcp test` proves a server can connect. Run the check that matches the changed behavior rather than substituting an easier command.
+A schema check proves parsing. A model smoke proves model selection and authentication. A broker status check proves broker connectivity. `/mcp test` proves a server can connect. `/agents` proves an agent definition is discovered with the expected properties. Run the check that matches the changed behavior rather than substituting an easier command.

@@ -65,6 +65,23 @@ Validate in an active OMP session:
 
 `/mcp list` confirms the winning source file. `/mcp test` verifies the selected server can connect, rather than merely proving that its JSON parsed.
 
+## Set up a subagent
+
+Start with the user's outcome rather than an agent template. Ask about:
+
+- the job the agent should handle
+- whether it should only read or also edit
+- user-wide or project-only scope
+- speed, quality, model, and cost preferences
+- foreground or background execution
+
+Check the current bundled agents before creating another one. If a custom definition is needed, use:
+
+- Active-profile user: `$AGENT_DIR/agents/<name>.md`
+- Project: `<project>/.omp/agents/<name>.md`
+
+Use current `omp-docs` guidance for supported frontmatter and tool controls. Keep the definition focused on one distinct role. Open `/agents` after the change and confirm OMP reports the expected model, permissions, prewalk, and advisor settings.
+
 ## Configure a custom provider
 
 Use values from the provider's official API documentation and current OMP docs. A typical `models.yml` provider entry contains:
