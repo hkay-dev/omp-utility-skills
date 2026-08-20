@@ -40,6 +40,31 @@ omp config reset <key>
 
 For a structure the CLI cannot represent, create a timestamped sibling backup of `config.yml`, apply a narrow YAML edit, then run `omp config list --json`.
 
+## Add an MCP server from a repository
+
+Read the server repository's README and setup files, then compare them with current OMP MCP documentation. Establish the transport and required values before editing:
+
+- stdio: executable command, arguments, working directory, and environment variables
+- HTTP or SSE: endpoint URL and any managed authentication requirements
+- runtime dependencies: package manager, binary, container, or service that must exist
+
+Choose one scope:
+
+- Active-profile user: `$AGENT_DIR/mcp.json`
+- Project: `<project>/.omp/mcp.json`
+
+Back up an existing file and preserve every unrelated `mcpServers` entry. Keep secrets in environment variables or OMP-managed authentication rather than tracked JSON.
+
+Validate in an active OMP session:
+
+```text
+/mcp reload
+/mcp list
+/mcp test <name>
+```
+
+`/mcp list` confirms the winning source file. `/mcp test` verifies the selected server can connect, rather than merely proving that its JSON parsed.
+
 ## Configure a custom provider
 
 Use values from the provider's official API documentation and current OMP docs. A typical `models.yml` provider entry contains:
