@@ -1,0 +1,28 @@
+{
+  "name": "omp-utility-skills",
+  "version": "1.0.0",
+  "description": "Portable Oh My Pi documentation and configuration skills.",
+  "license": "MIT",
+  "author": "hkay-dev",
+  "homepage": "https://github.com/hkay-dev/omp-utility-skills#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkay-dev/omp-utility-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hkay-dev/omp-utility-skills/issues"
+  },
+  "keywords": [
+    "oh-my-pi",
+    "omp",
+    "skills",
+    "configuration",
+    "documentation"
+  ],
+  "files": [
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "omp": {}
+}
